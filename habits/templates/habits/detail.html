@@ -1,0 +1,11 @@
+<form action="{% url 'habits:complete' habit.id %}" method="post">
+    {% csrf_token %}
+
+    <legend>
+        <h1>{{ habit.habit_text }}</h1>
+    </legend>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <input type="radio" name="complete" value="{{ habit.id }}">
+
+    <input type="submit" value="Complete">
+</form>
